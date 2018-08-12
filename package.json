@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "node index.js"
+    "start": "next start",
+    "serve": "nodemon server"
   },
   "author": "Marviuz",
   "license": "MIT",
