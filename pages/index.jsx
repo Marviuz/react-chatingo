@@ -69,9 +69,10 @@ class Index extends Component {
         name={this.state.name}
       >
         {this.state.messages.map((msg, i) => {
-          return (
-            <ChatYou msg={msg.msg} name={msg.name} key={i}/>
-          )
+          if (msg.name === this.state.name) {
+            return (<ChatYou msg={msg.msg} name={msg.name} key={i}/>)
+          }
+          return (<ChatOthers msg={msg.msg} name={msg.name} key={i}/>)
         })}
       </Layout>
     )
