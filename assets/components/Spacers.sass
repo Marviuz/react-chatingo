@@ -1,0 +1,54 @@
+.m-auto
+  margin: auto
+.mt-auto
+  margin-top: auto
+.mr-auto
+  margin-right: auto
+.mb-auto
+  margin-bottom: auto
+.ml-auto
+  margin-left: auto
+
+.my-auto
+  @extend .mt-auto
+  @extend .mb-auto
+.mx-auto
+  @extend .mr-auto
+  @extend .ml-auto
+  
+@for $i from 0 to 6
+  .m-#{$i}
+    margin: #{$i}rem
+  .mt-#{$i}
+    margin-top: #{$i}rem
+  .mr-#{$i}
+    margin-right: #{$i}rem
+  .mb-#{$i}
+    margin-bottom: #{$i}rem
+  .ml-#{$i}
+    margin-left: #{$i}rem
+
+  .my-#{$i}
+    @extend .mt-#{$i}
+    @extend .mb-#{$i}
+  .mx-#{$i}
+    @extend .mr-#{$i}
+    @extend .ml-#{$i}
+
+  .p-#{$i}
+    padding: #{$i}rem
+  .pt-#{$i}
+    padding-top: #{$i}rem
+  .pr-#{$i}
+    padding-right: #{$i}rem
+  .pb-#{$i}
+    padding-bottom: #{$i}rem
+  .pl-#{$i}
+    padding-left: #{$i}rem
+
+  .py-#{$i}
+    @extend .pt-#{$i}
+    @extend .pb-#{$i}
+  .px-#{$i}
+    @extend .pr-#{$i}
+    @extend .pl-#{$i}
