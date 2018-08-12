@@ -14,7 +14,8 @@ class Index extends Component {
 
     this.state = {
       msg: '',
-      messages: []
+      messages: [],
+      name: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,8 +26,15 @@ class Index extends Component {
     this.socket = io()
     this.socket.on('chat', msg => {
       this.setState({
-        messages: this.state.messages.concat(msg)
+        messages: [...this.state.messages, msg]
       })
+    })
+  }
+
+  // Map name/username
+  handleNameChange (evt) {
+    this.setState({
+      name: evt.target.value
     })
   }
 
@@ -43,17 +51,26 @@ class Index extends Component {
 
     // Send message if it's not empty
     if (!!this.state.msg) {
-      this.socket.emit('chat', this.state.msg)
+      this.socket.emit('chat', {
+        msg: this.state.msg,
+        name: this.state.name
+      })
       this.setState({ msg: '' })
     }
   }
 
   render () {
     return (
-      <Layout msg={this.state.msg} change={this.handleChange.bind(this)} submit={this.handleSubmit.bind(this)}>
+      <Layout
+        msg={this.state.msg}
+        change={this.handleChange.bind(this)}
+        submit={this.handleSubmit.bind(this)}
+        nameChange={this.handleNameChange.bind(this)}
+        name={this.state.name}
+      >
         {this.state.messages.map((msg, i) => {
           return (
-            <ChatYou msg={msg} name={'ChatYou'} key={i}/>
+            <ChatYou msg={msg.msg} name={msg.name} key={i}/>
           )
         })}
       </Layout>
