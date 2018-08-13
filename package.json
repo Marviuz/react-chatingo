@@ -4,10 +4,10 @@
   "description": "A simple react chat application",
   "main": "index.js",
   "scripts": {
-    "dev": "node server/index.js -p $PORT",
+    "dev": "node server.js -p $PORT",
     "build": "next build",
     "heroku-postbuild": "next build",
-    "start": "node server/index.js -p $PORT"
+    "start": "node server.js -p $PORT"
   },
   "author": "Marviuz",
   "license": "MIT",

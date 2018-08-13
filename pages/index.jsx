@@ -50,7 +50,7 @@ class Index extends Component {
     evt.preventDefault()
 
     // Send message if it's not empty
-    if (!!this.state.msg) {
+    if (!!this.state.msg && !!this.state.name) {
       this.socket.emit('chat', {
         msg: this.state.msg,
         name: this.state.name
