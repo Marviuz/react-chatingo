@@ -4,7 +4,6 @@ const socketIo = require('socket.io')
 const next = require('next')
 
 const port = process.env.PORT || 3000
-const host = process.env.HOST || 'localhost'
 const dev = process.env.NODE_ENV !== 'production'
 
 const app = express()
@@ -36,8 +35,8 @@ nextApp
       return handle(req, res)
     })
 
-    server.listen(port, host, err => {
+    server.listen(port, err => {
       if (err) throw err
-      console.log(`> Ready on http://${host}:${port}`)
+      console.log(`> Ready on port ${port}`)
     })
   })
