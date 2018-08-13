@@ -33,8 +33,12 @@ class Layout extends Component {
           </div>
           <form onSubmit={this.props.submit} className="chat-container mt-auto">
             <div>
-              <input type="text" autoComplete="off" value={this.props.name} onChange={this.props.nameChange} placeholder="Username?"/>
-              <input type="text" autoComplete="off" value={this.props.msg} onChange={this.props.change} placeholder="Say something..."/>
+              <div>
+                <input type="text" autoComplete="off" value={this.props.name} onChange={this.props.nameChange} placeholder="Username?"/>
+              </div>
+              <div>
+                <input type="text" autoComplete="off" value={this.props.msg} onChange={this.props.change} placeholder="Say something..."/>
+              </div>
               <button type="submit">send</button>
             </div>
           </form>

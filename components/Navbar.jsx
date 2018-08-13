@@ -1,14 +1,15 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 
 const Navbar = () => (
   <nav className="navbar">
-    <ul>
+    <div className="navbar-title">Chatingo</div>
+    {/* <ul>
       <li>
         <Link href="/">
           <a>Home</a>
         </Link>
       </li>
-    </ul>
+    </ul> */}
   </nav>
 )
 

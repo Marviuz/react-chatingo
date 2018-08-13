@@ -2,7 +2,7 @@ const ChatYou = (props) => (
   <div className="chat-message you">
     <div className="chat-message-msg">
       <div className="chat-name">
-        <span>{props.name}</span>
+        <div>{props.name}</div>
       </div>
       <p>{props.msg}</p>
     </div>
