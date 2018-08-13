@@ -2,7 +2,7 @@
   "name": "react-chatingo",
   "version": "0.1.0",
   "description": "A simple react chat application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node server.js -p $PORT",
     "build": "next build",
@@ -23,5 +23,13 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marviuz/react-chatingo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Marviuz/react-chatingo/issues"
+  },
+  "homepage": "https://github.com/Marviuz/react-chatingo#readme"
 }
