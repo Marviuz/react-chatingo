@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import io from 'socket.io-client'
 
-import ChatYou from '../components/ChatYou'
+import ChatMe from '../components/ChatMe'
 import ChatOthers from '../components/ChatOthers'
 import Layout from '../components/Layout'
 
@@ -50,7 +50,8 @@ class Index extends Component {
     evt.preventDefault()
 
     // Send message if it's not empty
-    if (!!this.state.msg && !!this.state.name) {
+    // !!this.state.msg && !!this.state.name
+    if (!!this.state.msg) {
       this.socket.emit('chat', {
         msg: this.state.msg,
         name: this.state.name
@@ -62,7 +63,7 @@ class Index extends Component {
   render () {
     return (
       <Layout
-        msg={this.state.msg}
+        message={this.state.msg}
         change={this.handleChange.bind(this)}
         submit={this.handleSubmit.bind(this)}
         nameChange={this.handleNameChange.bind(this)}
@@ -70,9 +71,9 @@ class Index extends Component {
       >
         {this.state.messages.map((msg, i) => {
           if (msg.name === this.state.name) {
-            return (<ChatYou msg={msg.msg} name={msg.name} key={i}/>)
+            return (<ChatMe message={msg.msg} name={msg.name} key={i}/>)
           }
-          return (<ChatOthers msg={msg.msg} name={msg.name} key={i}/>)
+          return (<ChatOthers message={msg.msg} name={msg.name} key={i}/>)
         })}
       </Layout>
     )

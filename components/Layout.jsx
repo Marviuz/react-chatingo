@@ -22,25 +22,13 @@ class Layout extends Component {
           <title>Chatingo</title>
           <link rel="stylesheet" href="/_next/static/style.css"/>
         </Head>
-        <Navbar />
-        <div className="chat">
-          <div>
-            <div className="chat-log-container">
-              {this.props.children}
-              {/* Scroll to end reference div */}
-              <div style={{ float:"left", clear: "both" }} ref={(el) => { this.messagesEnd = el; }}></div>
-            </div>
-          </div>
-          <form onSubmit={this.props.submit} className="chat-container mt-auto">
-            <div>
-              <div>
-                <input type="text" autoComplete="off" value={this.props.name} onChange={this.props.nameChange} placeholder="Username?"/>
-              </div>
-              <div>
-                <input type="text" autoComplete="off" value={this.props.msg} onChange={this.props.change} placeholder="Say something..."/>
-              </div>
-              <button type="submit">send</button>
-            </div>
+        <Navbar/>
+        <div className="chat-container">
+          {this.props.children}
+          <div style={{ float:"left", clear: "both" }} ref={(el) => { this.messagesEnd = el; }}></div>
+          <form onSubmit={this.props.submit} className="chat-form">
+            <input type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Where're you comin' from?"/>
+            <button type="submit">send</button>
           </form>
         </div>
       </div>

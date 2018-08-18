@@ -1,0 +1,63 @@
+.chat-container
+  margin: 25px 25px 58px
+
+  > .chat-form
+    position: fixed
+    bottom: 0
+    left: 0
+    width: 100%
+    border-top: 1px solid #b5b5b5
+    display: flex
+
+    > input
+      padding: .7rem
+      border: none
+      outline: none
+      display: block
+      flex-grow: 1
+
+    > button
+      border: none
+      border-left: 1px solid #b5b5b5
+      color: #fff
+      width: 70px
+      text-transform: uppercase
+      color: #565656
+      background-color: #dadada
+      outline: none
+
+  .chat-message.me
+    .chat-profile
+      margin-left: 10px
+  .chat-message.others
+    .chat-profile
+      margin-right: 10px
+
+  .chat-message 
+    display: flex
+    margin-bottom: 10px
+
+    > .chat-bubble
+      width: calc(100% - 70px)
+      background-color: #fff
+      border-radius: 10px
+      padding: 16px
+      box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
+
+      > .chat-user
+        font-size: 1.2rem
+        font-family: Futura, "Trebuchet MS", Arial, sans-serif
+        font-weight: 700
+        margin-bottom: 7px
+
+    > .chat-profile
+      height: 70px
+      width: 70px
+      overflow: hidden
+      border-radius: 50%
+      box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
+      text-align: center
+      > img
+        height: 100%
+        width: auto
+        margin: 0 -100%

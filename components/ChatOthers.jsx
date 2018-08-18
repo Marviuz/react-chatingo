@@ -1,13 +1,11 @@
 const ChatOthers = (props) => (
   <div className="chat-message others">
-    <div className="chat-message-image">
-      <img src="https://media.mnn.com/assets/images/2017/07/blue_hydrangea.jpg.653x0_q80_crop-smart.jpg"/>
+    <div className="chat-profile">
+      <img src="https://i.imgur.com/oW1dGDI.jpg"/>
     </div>
-    <div className="chat-message-msg">
-      <div className="chat-name">
-        <span>{props.name}</span>
-      </div>
-      <p>{props.msg}</p>
+    <div className="chat-bubble">
+      <div className="chat-user">{props.name}</div>
+      <p className="chat-content">{props.message}</p>
     </div>
   </div>
 )
