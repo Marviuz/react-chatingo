@@ -43,15 +43,18 @@ class Index extends Component {
     this.socket.on('chat', user => {
       this.setState({
         messages: [...this.state.messages, user]
+      }, () => {
+        // When state changes, play sound
+        this.audioEl.play ()
+        setTimeout(() => {
+          this.audioEl.currentTime = 0
+          this.audioEl.pause ()
+        }, 1450)
       })
     })
   }
 
-  componentDidUpdate () {
-    
-  }
-
-  // Change input data
+  // Change input value
   handleChange (evt) {
     this.setState({
       message: evt.target.value
@@ -70,22 +73,27 @@ class Index extends Component {
         message: this.state.message,
         profileImage: this.state.profileImage
       })
-
+      // Set value back to empty after send
       this.setState({
         message: ''
       })
     }
   }
 
+  // Sign out the current user
   handleSignOut() {
     firebase.auth().signOut()
-      .then(() => console.log('Signed out :)'))
-      .catch(err => console.log('Something went wrong when you were signing out', err))
+      .catch(err => console.log('Something went wrong when you were signing out. Please contact the developer for help.', err))
   }
 
   render () {
     return (
       <Layout signOut={this.handleSignOut.bind(this)}>
+
+        <audio ref={(el) => this.audioEl = el}>
+          <source src="../static/messaged.mp3"/>
+        </audio>
+        
         <ChatContainer
           message={this.state.message}
           change={this.handleChange.bind(this)}
@@ -98,7 +106,6 @@ class Index extends Component {
             return (<ChatOthers message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
           })}
         </ChatContainer>
-        
       </Layout>
     )
   }
