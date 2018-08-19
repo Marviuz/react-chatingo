@@ -25,7 +25,7 @@ class Index extends Component {
       message: ''
     }
 
-    this.audio = new Audio('../static/messaged.mp3')
+    // this.audio = new Audio('../static/messaged.mp3')
   }
 
   componentDidMount () {
