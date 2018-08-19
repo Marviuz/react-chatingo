@@ -10,11 +10,12 @@
     display: flex
 
     > input
-      padding: .7rem
+      padding: .55rem .7rem .7rem .7rem
       border: none
       outline: none
       display: block
       flex-grow: 1
+      line-height: normal
 
     > button
       border: none
@@ -25,10 +26,18 @@
       color: #565656
       background-color: #dadada
       outline: none
+      transition: .3s ease-in-out
+    
+    > button:hover
+      background-color: #dadada + 20
+
+    > button:focus
+      background-color: #dadada - 20
 
   .chat-message.me
     .chat-profile
       margin-left: 10px
+
   .chat-message.others
     .chat-profile
       margin-right: 10px
@@ -44,6 +53,10 @@
       padding: 16px
       box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
 
+      > .chat-content
+        line-height: 1.4
+        word-break: break-word
+
       > .chat-user
         font-size: 1.2rem
         font-family: Futura, "Trebuchet MS", Arial, sans-serif
@@ -57,6 +70,7 @@
       border-radius: 50%
       box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
       text-align: center
+
       > img
         height: 100%
         width: auto

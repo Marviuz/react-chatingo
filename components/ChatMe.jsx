@@ -5,7 +5,7 @@ const ChatMe = (props) => (
       <p className="chat-content">{props.message}</p>
     </div>
     <div className="chat-profile">
-      <img src="https://steamusercontent-a.akamaihd.net/ugc/357276631061310293/91FEC9CB15B08560B51FBBAD68D8F12280D58D8C/"/>
+      <img src={props.profileImage}/>
     </div>
   </div>
 )
