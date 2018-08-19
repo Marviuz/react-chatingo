@@ -1,0 +1,41 @@
+.sign-in-container
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 300px
+  flex-direction: column
+
+  > p
+    margin-bottom: 16px
+    font-weight: 700
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif
+    transform: scaleX(1.1)
+    font-size: 1.5rem
+    text-align: center
+
+  > .btn-google
+    border: none
+    font-size: 1.3rem
+    font-weight: 700
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif
+    transform: scaleX(1.1)
+    text-transform: uppercase
+    padding: 0 16px
+    height: 38px
+    color: #fff
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
+    background-color: #ff5757
+    outline: none
+    cursor: pointer
+    transition: .3s ease-in-out
+    border-radius: 2px
+
+    i
+      margin-right: 10px
+
+  > .btn-google:hover
+    background-color: #ff5757 + 30
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .3)
+  > .btn-google:focus
+    background-color: #ff5757 - 30
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .19)

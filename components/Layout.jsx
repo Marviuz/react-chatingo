@@ -1,40 +1,21 @@
-import { Component } from 'react'
 import Head from 'next/head'
 
 import Navbar from '../components/Navbar'
 
-class Layout extends Component {
-  
-  constructor (props) {
-    super (props)
-  }
+const Layout = props => (
+  <div>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Chatingo</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+      <link rel="stylesheet" href="/_next/static/style.css"/>
+    </Head>
 
-  componentDidUpdate() {
-    // Scroll to the end of the chat log when component is updated
-    this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  render () {
-    return (
-      <div>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>Chatingo</title>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
-          <link rel="stylesheet" href="/_next/static/style.css"/>
-        </Head>
-        <Navbar signOut={this.props.signOut}/>
-        <div className="chat-container">
-          {this.props.children}
-          <div style={{ float:"left", clear: "both" }} ref={(el) => { this.messagesEnd = el; }}></div>
-          <form onSubmit={this.props.submit} className="chat-form">
-            <input type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Say something..."/>
-            <button type="submit">send</button>
-          </form>
-        </div>
-      </div>
-    )
-  }
-}
+    <Navbar signOut={props.signOut}/>
+    <div>
+      {props.children}
+    </div>
+  </div>
+)
 
 export default Layout

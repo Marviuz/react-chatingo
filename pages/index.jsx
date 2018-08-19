@@ -5,6 +5,7 @@ import firebase from '../lib/firebase'
 
 import ChatMe from '../components/ChatMe'
 import ChatOthers from '../components/ChatOthers'
+import ChatContainer from '../components/ChatContainer'
 import Layout from '../components/Layout'
 
 import '../assets/bundle.sass'
@@ -34,7 +35,7 @@ class Index extends Component {
           profileImage: user.photoURL
         })
       } else {
-        Router.push('/login')
+        Router.push('/signin')
       }
     })
 
@@ -80,18 +81,20 @@ class Index extends Component {
 
   render () {
     return (
-      <Layout
-        message={this.state.message}
-        change={this.handleChange.bind(this)}
-        submit={this.handleSubmit.bind(this)}
-        signOut={this.handleSignOut.bind(this)}
-      >
-        {this.state.messages.map((user, i) => {
-          if (user.id === this.state.id) {
-            return (<ChatMe message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
-          }
-          return (<ChatOthers message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
-        })}
+      <Layout signOut={this.handleSignOut.bind(this)}>
+        <ChatContainer
+          message={this.state.message}
+          change={this.handleChange.bind(this)}
+          submit={this.handleSubmit.bind(this)}
+        >
+          {this.state.messages.map((user, i) => {
+            if (user.id === this.state.id) {
+              return (<ChatMe message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
+            }
+            return (<ChatOthers message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
+          })}
+        </ChatContainer>
+        
       </Layout>
     )
   }
