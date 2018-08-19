@@ -24,8 +24,6 @@ class Index extends Component {
       profileImage: null,
       message: ''
     }
-
-    // this.audio = new Audio('../static/messaged.mp3')
   }
 
   componentDidMount () {
@@ -43,13 +41,6 @@ class Index extends Component {
 
     this.socket = io()
     this.socket.on('chat', user => {
-      
-      if (this.state.messages.id !== this.state.id) {
-        this.audio.play ()
-        this.audio.pause ()
-        this.audio.currentTime = 0
-      }
-
       this.setState({
         messages: [...this.state.messages, user]
       })
