@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import Router from 'next/router'
 import io from 'socket.io-client'
-import firebase from '../lib/firebase'
 
+import firebase from '../lib/firebase'
 import ChatMe from '../components/ChatMe'
 import ChatOthers from '../components/ChatOthers'
 import ChatContainer from '../components/ChatContainer'
@@ -24,6 +24,8 @@ class Index extends Component {
       profileImage: null,
       message: ''
     }
+
+    this.audio = new Audio('../static/messaged.mp3')
   }
 
   componentDidMount () {
@@ -41,10 +43,21 @@ class Index extends Component {
 
     this.socket = io()
     this.socket.on('chat', user => {
+      
+      if (this.state.messages.id !== this.state.id) {
+        this.audio.play ()
+        this.audio.pause ()
+        this.audio.currentTime = 0
+      }
+
       this.setState({
         messages: [...this.state.messages, user]
       })
     })
+  }
+
+  componentDidUpdate () {
+    
   }
 
   // Change input data

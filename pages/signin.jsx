@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import Router from 'next/router'
-import firebase from '../lib/firebase'
 import Head from 'next/head'
 
+import firebase from '../lib/firebase'
 import '../assets/bundle.sass'
 import Layout from '../components/Layout'
 
@@ -21,7 +21,7 @@ class Login extends Component {
   }
 
   handleSignIn () {
-    firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
   }
 
   render () {
