@@ -37,6 +37,6 @@ nextApp
 
     server.listen(port, err => {
       if (err) throw err
-      console.log(`> Ready on port ${port}`)
+      if (dev) console.log(`> Ready on http://localhost:${port}`)
     })
   })
