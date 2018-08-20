@@ -13,9 +13,12 @@
     > .navbar-title
       position: absolute
       font-family: Futura, "Trebuchet MS", Arial, sans-serif
-      font-size: 3rem
+      font-size: 2.6rem
       font-weight: 700
       color: #ffffff
+      > .icon-chatingo
+        font-size: 2.2rem
+        margin-right: 1rem
     > .navbar-items
       height: 100%
       display: flex
@@ -39,11 +42,14 @@
       > li:hover
         background-color: #383838 - 10
 
-@media only screen and (max-width: 463px)
+@media only screen and (max-width: 575.98px)
   .navbar
     > .navbar-wrapper
       > .navbar-title
-        font-size: 2.5rem
+        > .icon-chatingo
+          margin: 0
+        > .icon-chatingo + span
+          display: none
       > .navbar-items
         > li
           > .material-icons

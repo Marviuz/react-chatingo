@@ -7,6 +7,7 @@ const Layout = props => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>Chatingo</title>
+      <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon"/>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
       <link rel="stylesheet" href="/_next/static/style.css"/>
     </Head>
