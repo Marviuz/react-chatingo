@@ -44,16 +44,12 @@ class Index extends Component {
       this.setState({
         messages: [...this.state.messages, user]
       }, () => {
-        // When state changes, play sound
-        // If the id appended is not the user's id, then play audio
-        const compare = this.state.messages.pop().id !== this.state.id
-        if (compare) {
+        if (user.id !== this.state.id) {
           this.audioEl.play ()
           setTimeout(() => {
             this.audioEl.currentTime = 0
             this.audioEl.pause ()
           }, 1450)
-
         }
       })
     })
