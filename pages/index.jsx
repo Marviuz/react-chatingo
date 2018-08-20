@@ -45,11 +45,16 @@ class Index extends Component {
         messages: [...this.state.messages, user]
       }, () => {
         // When state changes, play sound
-        this.audioEl.play ()
-        setTimeout(() => {
-          this.audioEl.currentTime = 0
-          this.audioEl.pause ()
-        }, 1450)
+        // If the id appended is not the user's id, then play audio
+        const compare = this.state.messages.pop().id !== this.state.id
+        if (compare) {
+          this.audioEl.play ()
+          setTimeout(() => {
+            this.audioEl.currentTime = 0
+            this.audioEl.pause ()
+          }, 1450)
+
+        }
       })
     })
   }
@@ -90,7 +95,7 @@ class Index extends Component {
     return (
       <Layout signOut={this.handleSignOut.bind(this)}>
 
-        <audio ref={(el) => this.audioEl = el}>
+        <audio ref={el => this.audioEl = el}>
           <source src="../static/messaged.mp3"/>
         </audio>
         
