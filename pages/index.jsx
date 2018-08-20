@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import Router from 'next/router'
 import io from 'socket.io-client'
+import moment from 'moment'
 
 import firebase from '../lib/firebase'
 import ChatMe from '../components/ChatMe'
@@ -72,7 +73,8 @@ class Index extends Component {
         id: this.state.id,
         name: this.state.name,
         message: this.state.message,
-        profileImage: this.state.profileImage
+        profileImage: this.state.profileImage,
+        timeDate: moment().format('h:mm A MMM D, YYYY')
       })
       // Set value back to empty after send
       this.setState({
@@ -102,9 +104,9 @@ class Index extends Component {
         >
           {this.state.messages.map((user, i) => {
             if (user.id === this.state.id) {
-              return (<ChatMe message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
+              return (<ChatMe message={user.message} name={user.name} profileImage={user.profileImage} key={i} timeDate={user.timeDate}/>)
             }
-            return (<ChatOthers message={user.message} name={user.name} profileImage={user.profileImage} key={i}/>)
+            return (<ChatOthers message={user.message} name={user.name} profileImage={user.profileImage} key={i} timeDate={user.timeDate}/>)
           })}
         </ChatContainer>
       </Layout>

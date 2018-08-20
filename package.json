@@ -1,6 +1,6 @@
 {
   "name": "react-chatingo",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A simple react chat application",
   "main": "server.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "@zeit/next-sass": "^0.2.0",
     "express": "^4.16.3",
     "firebase": "^5.4.0",
+    "moment": "^2.22.2",
     "next": "^6.1.1",
     "node-sass": "^4.9.3",
     "react": "^16.4.2",

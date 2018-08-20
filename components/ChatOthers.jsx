@@ -6,6 +6,7 @@ const ChatOthers = (props) => (
     <div className="chat-bubble">
       <div className="chat-user">{props.name}</div>
       <p className="chat-content">{props.message}</p>
+      <div className="chat-time">{props.timeDate}</div>
     </div>
   </div>
 )
