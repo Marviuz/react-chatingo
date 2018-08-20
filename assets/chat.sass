@@ -50,23 +50,34 @@
       width: calc(100% - 70px)
       background-color: #fff
       border-radius: 10px
-      padding: 16px
       box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
-
-      > .chat-content
-        line-height: 1.4
-        word-break: break-word
+      overflow: hidden
 
       > .chat-user
         font-size: 1.2rem
         font-family: Futura, "Trebuchet MS", Arial, sans-serif
         font-weight: 700
         margin-bottom: 7px
+        word-break: break-word
+        padding: 16px 16px 0 16px
+
+      > .chat-yt
+        min-height: 44vw
+        width: 100%
+        height: 40vw
+        margin: 10px 0
+
+      > .chat-content
+        line-height: 1.4
+        word-break: break-word
+        padding: 16px
+        padding: 0 16px 0 16px
 
       > .chat-time
         font-size: 11px
         margin-top: 10px
         color: #8c8c8c
+        padding: 0 16px 16px 16px
 
     > .chat-profile
       height: 70px
