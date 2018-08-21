@@ -42,11 +42,17 @@
         animation: .4s pulseInverted
 
   .chat-message.me
-    .chat-profile
+    > .chat-bubble
+      margin-left: 80px
+    > .chat-profile
+      flex-shrink: 0
       margin-left: 10px
 
   .chat-message.others
-    .chat-profile
+    > .chat-bubble
+      margin-right: 80px
+    > .chat-profile
+      flex-shrink: 0
       margin-right: 10px
 
   .chat-message
@@ -54,7 +60,7 @@
     margin-bottom: 10px
 
     > .chat-bubble
-      width: calc(100% - 70px)
+      width: 100%
       background-color: #fff
       border-radius: 10px
       box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
@@ -99,6 +105,20 @@
         width: auto
         margin: 0 -100%
 
+
+@media only screen and (max-width: 575.98px)
+  .chat-container
+    .chat-message.me
+      > .chat-bubble
+        margin-left: 70px
+      > .chat-profile
+        display: none
+    .chat-message.others
+      > .chat-bubble
+        margin-right: 0
+      > .chat-profile
+        width: 60px
+        height: 60px
 
 @keyframes pulse
   0%
