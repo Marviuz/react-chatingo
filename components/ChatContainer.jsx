@@ -16,7 +16,7 @@ class ChatContainer extends Component {
         {this.props.children}
         <div style={{ float:"left", clear: "both" }} ref={el => this.messagesEnd = el}></div>
         <form onSubmit={this.props.submit} className="chat-form">
-          <input type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Say something..."/>
+          <input autoFocus type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Say something..."/>
           <button type="submit">
             <i className="material-icons">send</i>
           </button>
