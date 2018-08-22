@@ -94,10 +94,11 @@ class Index extends Component {
   setFiles (files) {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
+
       if (file.type.indexOf('image/') > -1) {
-        
         const fileReader = new FileReader()
         fileReader.onload = (evt) => {
+          console.log(evt.target.result)
           this.socket.emit('chat', {
             id: this.state.id,
             name: this.state.name,
