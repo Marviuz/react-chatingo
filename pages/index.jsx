@@ -4,6 +4,7 @@ import io from 'socket.io-client'
 import moment from 'moment'
 
 import firebase from '../lib/firebase'
+
 import ChatMe from '../components/ChatMe'
 import ChatOthers from '../components/ChatOthers'
 import ChatContainer from '../components/ChatContainer'
@@ -86,7 +87,7 @@ class Index extends Component {
   // Sign out the current user
   handleSignOut() {
     firebase.auth().signOut()
-      .catch(err => console.log('Something went wrong when you were signing out. Please contact the developer for help.', err))
+      .catch(err => console.error('Something went wrong when you were signing out. Please contact the developer for help.', err))
   }
 
   render () {
@@ -104,9 +105,25 @@ class Index extends Component {
         >
           {this.state.messages.map((user, i) => {
             if (user.id === this.state.id) {
-              return (<ChatMe message={user.message} name={user.name} profileImage={user.profileImage} key={i} timeDate={user.timeDate}/>)
+              return (
+                <ChatMe
+                  key={i}
+                  name={user.name}
+                  profileImage={user.profileImage}
+                  timeDate={user.timeDate}
+                  embed={user.message}
+                >{user.message}</ChatMe>
+              )
             }
-            return (<ChatOthers message={user.message} name={user.name} profileImage={user.profileImage} key={i} timeDate={user.timeDate}/>)
+            return (
+              <ChatOthers
+                key={i}
+                name={user.name}
+                profileImage={user.profileImage}
+                timeDate={user.timeDate}
+                embed={user.message}
+              >{user.message}</ChatOthers>
+            )
           })}
         </ChatContainer>
       </Layout>

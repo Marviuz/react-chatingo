@@ -1,9 +1,14 @@
+import Linkify from 'react-linkify'
+import { getEmbedUrl } from '../lib/yt-validate'
+
 const ChatMe = (props) => (
   <div className="chat-message me">
     <div className="chat-bubble">
       <div className="chat-user">{props.name}</div>
-      {/* <iframe className="chat-yt" src="https://www.youtube.com/embed/J5ntXqQtK1E" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe> */}
-      <p className="chat-content">{props.message}</p>
+      {checkYTLink(props.embed)}
+      <p className="chat-content">
+        <Linkify properties={{target: '_blank'}}>{props.children}</Linkify>
+      </p>
       <div className="chat-time">{props.timeDate}</div>
     </div>
     <div className="chat-profile">
@@ -11,5 +16,11 @@ const ChatMe = (props) => (
     </div>
   </div>
 )
+
+const checkYTLink = ($) => {
+  if (getEmbedUrl($)) {
+    return <iframe className="chat-yt" src={getEmbedUrl($)} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+  }
+}
 
 export default ChatMe
