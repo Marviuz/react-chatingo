@@ -95,13 +95,18 @@ class Index extends Component {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
       if (file.type.indexOf('image/') > -1) {
-        this.socket.emit('chat', {
-          id: this.state.id,
-          name: this.state.name,
-          file: file.preview,
-          profileImage: this.state.profileImage,
-          timeDate: moment().format('h:mm A MMM D, YYYY')
-        })
+        
+        const fileReader = new FileReader()
+        fileReader.onload = (evt) => {
+          this.socket.emit('chat', {
+            id: this.state.id,
+            name: this.state.name,
+            file: evt.target.result,
+            profileImage: this.state.profileImage,
+            timeDate: moment().format('h:mm A MMM D, YYYY')
+          })
+        }
+        fileReader.readAsDataURL(file)
         break;
       }
     }
