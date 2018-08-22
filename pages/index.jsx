@@ -24,7 +24,8 @@ class Index extends Component {
       id: null,
       name: '',
       profileImage: null,
-      message: ''
+      message: '',
+      file: null
     }
   }
 
@@ -90,6 +91,22 @@ class Index extends Component {
       .catch(err => console.error('Something went wrong when you were signing out. Please contact the developer for help.', err))
   }
 
+  setFiles (files) {
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      if (file.type.indexOf('image/') > -1) {
+        this.socket.emit('chat', {
+          id: this.state.id,
+          name: this.state.name,
+          file: file.preview,
+          profileImage: this.state.profileImage,
+          timeDate: moment().format('h:mm A MMM D, YYYY')
+        })
+        break;
+      }
+    }
+  }
+
   render () {
     return (
       <Layout signOut={this.handleSignOut.bind(this)}>
@@ -97,11 +114,12 @@ class Index extends Component {
         <audio ref={el => this.audioEl = el}>
           <source src="../static/messaged.mp3"/>
         </audio>
-        
+
         <ChatContainer
           message={this.state.message}
           change={this.handleChange.bind(this)}
           submit={this.handleSubmit.bind(this)}
+          setFiles={this.setFiles.bind(this)}
         >
           {this.state.messages.map((user, i) => (
             <ChatBubble
@@ -110,6 +128,7 @@ class Index extends Component {
               name={user.name}
               profileImage={user.profileImage}
               timeDate={user.timeDate}
+              file={user.file}
               embed={getEmbedUrl(user.message)}
             >{user.message}</ChatBubble>
           ))}

@@ -1,5 +1,6 @@
 .chat-container
   margin: 25px 25px 58px
+  position: initial !important
 
   > .chat-form
     position: fixed
@@ -73,6 +74,20 @@
         margin-bottom: 7px
         word-break: break-word
         padding: 16px 16px 0 16px
+
+      > .chat-img-upload
+        max-height: 300px
+        overflow: hidden
+        margin: 10px 0
+        position: relative
+        min-height: 200px
+
+        > img
+          height: 100%
+          position: absolute
+          left: 50%
+          top: 50%
+          transform: translate(-50%, -50%)
 
       > .chat-yt
         min-height: 44vw

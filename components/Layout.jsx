@@ -1,9 +1,10 @@
 import Head from 'next/head'
+import { Fragment } from 'react'
 
 import Navbar from '../components/Navbar'
 
 const Layout = props => (
-  <div>
+  <Fragment>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="theme-color" content="#383838"/>
@@ -17,7 +18,7 @@ const Layout = props => (
     <div>
       {props.children}
     </div>
-  </div>
+  </Fragment>
 )
 
 export default Layout
