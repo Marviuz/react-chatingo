@@ -4,9 +4,9 @@ import io from 'socket.io-client'
 import moment from 'moment'
 
 import firebase from '../lib/firebase'
+import { getEmbedUrl } from '../lib/yt-validate'
 
-import ChatMe from '../components/ChatMe'
-import ChatOthers from '../components/ChatOthers'
+import ChatBubble from '../components/ChatBubble'
 import ChatContainer from '../components/ChatContainer'
 import Layout from '../components/Layout'
 
@@ -103,28 +103,16 @@ class Index extends Component {
           change={this.handleChange.bind(this)}
           submit={this.handleSubmit.bind(this)}
         >
-          {this.state.messages.map((user, i) => {
-            if (user.id === this.state.id) {
-              return (
-                <ChatMe
-                  key={i}
-                  name={user.name}
-                  profileImage={user.profileImage}
-                  timeDate={user.timeDate}
-                  embed={user.message}
-                >{user.message}</ChatMe>
-              )
-            }
-            return (
-              <ChatOthers
-                key={i}
-                name={user.name}
-                profileImage={user.profileImage}
-                timeDate={user.timeDate}
-                embed={user.message}
-              >{user.message}</ChatOthers>
-            )
-          })}
+          {this.state.messages.map((user, i) => (
+            <ChatBubble
+              isUser={user.id === this.state.id}
+              key={i}
+              name={user.name}
+              profileImage={user.profileImage}
+              timeDate={user.timeDate}
+              embed={getEmbedUrl(user.message)}
+            >{user.message}</ChatBubble>
+          ))}
         </ChatContainer>
       </Layout>
     )

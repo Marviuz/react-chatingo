@@ -1,6 +1,6 @@
 {
   "name": "react-chatingo",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A simple react chat application",
   "main": "server.js",
   "scripts": {
