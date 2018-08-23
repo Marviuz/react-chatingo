@@ -47,9 +47,6 @@ class Index extends Component {
       this.setState({
         messages: [...this.state.messages, user]
       }, () => {
-        if (user.file) {
-          alert(user.file)
-        }
         if (user.id !== this.state.id && !document.hasFocus()) {
           this.audioEl.play ()
           setTimeout(() => {

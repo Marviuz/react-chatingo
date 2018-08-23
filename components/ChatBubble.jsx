@@ -34,6 +34,11 @@ export default (props) => {
       </div>
       <div className="chat-bubble">
         <div className="chat-user">{props.name}</div>
+        {props.file &&
+            <div className="chat-img-upload">
+              <img src={props.file}/>
+            </div>
+          }
         {props.embed &&
           <iframe className="chat-yt" src={props.embed} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
         }
