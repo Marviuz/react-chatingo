@@ -14,18 +14,20 @@ class ChatContainer extends Component {
 
   render () {
     return (
-      <Dropzone disableClick className="chat-container" onDrop={this.props.setFiles}>
+      <div className="container">
+        <Dropzone disableClick className="chat-container" onDrop={this.props.setFiles}>
 
-        {this.props.children}
+          {this.props.children}
 
-        <div style={{ float:"left", clear: "both" }} ref={el => this.messagesEnd = el}></div>
-        <form onSubmit={this.props.submit} className="chat-form">
-          <input autoFocus type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Say something..."/>
-          <button type="submit">
-            <i className="material-icons">send</i>
-          </button>
-        </form>
-      </Dropzone>
+          <div style={{ float:"left", clear: "both" }} ref={el => this.messagesEnd = el}></div>
+          <form onSubmit={this.props.submit} className="chat-form">
+            <input autoFocus type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Say something..."/>
+            <button type="submit">
+              <i className="material-icons">send</i>
+            </button>
+          </form>
+        </Dropzone>
+      </div>
     )
   }
 }

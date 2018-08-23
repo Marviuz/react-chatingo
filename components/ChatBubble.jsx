@@ -4,6 +4,7 @@ export default (props) => {
   if (props.isUser) {
     return (
       <div className="chat-message me">
+        <div className="spacer"></div>
         <div className="chat-bubble">
           <div className="chat-user">{props.name}</div>
           {props.file &&
@@ -47,6 +48,7 @@ export default (props) => {
         </p>
         <div className="chat-time">{props.timeDate}</div>
       </div>
+      <div className="spacer"></div>
     </div>
   )
 }

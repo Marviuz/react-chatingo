@@ -1,6 +1,17 @@
+.container
+  width: 100%
+  padding-right: 15px
+  padding-left: 15px
+  margin-right: auto
+  margin-left: auto
+  
 .chat-container
-  margin: 25px 25px 58px
+  padding: 25px 25px 58px
   position: initial !important
+  margin: 0 auto
+  border-right: 1px solid #c3c3c3
+  border-left: 1px solid #c3c3c3
+  min-height: calc(100vh - 4rem)
 
   > .chat-form
     position: fixed
@@ -44,14 +55,13 @@
 
   .chat-message.me
     > .chat-bubble
-      margin-left: 80px
+      margin-left: auto
     > .chat-profile
       flex-shrink: 0
       margin-left: 10px
 
   .chat-message.others
-    > .chat-bubble
-      margin-right: 80px
+    // > .chat-bubble
     > .chat-profile
       flex-shrink: 0
       margin-right: 10px
@@ -60,8 +70,13 @@
     display: flex
     margin-bottom: 10px
 
+    > .spacer
+      width: 80px
+      flex-shrink: 0
+
     > .chat-bubble
-      width: 100%
+      max-width: 100%
+      min-width: 60%
       background-color: #fff
       border-radius: 10px
       box-shadow: 0 2px 7px rgba(0, 0, 0, .2)
@@ -90,15 +105,13 @@
           transform: translate(-50%, -50%)
 
       > .chat-yt
-        min-height: 44vw
         width: 100%
-        height: 40vw
+        height: 300px
         margin: 10px 0
 
       > .chat-content
         line-height: 1.4
         word-break: break-word
-        padding: 16px
         padding: 0 16px 0 16px
 
       > .chat-time
@@ -120,17 +133,35 @@
         width: auto
         margin: 0 -100%
 
+@media (min-width: 576px)
+  .container
+    max-width: 540px
+
+@media (min-width: 768px)
+  .container
+    max-width: 720px
+
+@media (min-width: 992px)
+  .container
+    max-width: 960px
+
+@media (min-width: 1200px)
+  .container
+    max-width: 1140px
 
 @media only screen and (max-width: 575.98px)
   .chat-container
+    border-right: unset
+    border-left: unset
+    padding: 25px 0 58px
     .chat-message.me
-      > .chat-bubble
-        margin-left: 70px
+      > .spacer
+        width: 70px
       > .chat-profile
         display: none
     .chat-message.others
-      > .chat-bubble
-        margin-right: 0
+      > .spacer
+        width: 0
       > .chat-profile
         width: 60px
         height: 60px
