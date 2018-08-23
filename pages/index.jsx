@@ -94,21 +94,27 @@ class Index extends Component {
   setFiles (files) {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
-
       if (file.type.indexOf('image/') > -1) {
-        const fileReader = new FileReader()
-        fileReader.onload = (evt) => {
-          console.log(evt.target.result)
-          this.socket.emit('chat', {
-            id: this.state.id,
-            name: this.state.name,
-            file: evt.target.result,
-            profileImage: this.state.profileImage,
-            timeDate: moment().format('h:mm A MMM D, YYYY')
-          })
+        const reader = new FileReader ()
+        reader.onload = evt => {
+          const mimes = ['data:image/gif;base64,', 'data:image/jpeg;base64,', 'data:image/png;base64,', 'data:image/svg+xml;base64,']
+          const substr = evt.target.result.substring(0, 51)
+          for (let i = 0; i < mimes.length; i++) {
+            const mime = mimes[i];
+            if (substr.indexOf(mime) > -1) {
+              this.socket.emit('chat', {
+                id: this.state.id,
+                name: this.state.name,
+                file: evt.target.result.replace(mime, ''),
+                profileImage: this.state.profileImage,
+                timeDate: moment().format('h:mm A MMM D, YYYY')
+              })
+              break
+            }
+          }
         }
-        fileReader.readAsDataURL(file)
-        break;
+        reader.readAsDataURL(file)
+        break
       }
     }
   }

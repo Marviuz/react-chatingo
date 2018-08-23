@@ -2,6 +2,7 @@ const express = require('express')
 const http = require('http')
 const socketIo = require('socket.io')
 const next = require('next')
+const imgur = require('imgur')
 
 const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -23,7 +24,16 @@ io.on('connection', socket => {
 
   // Send message
   socket.on('chat', data => {
-    io.emit('chat', data)
+    if (data.file) {
+      imgur.uploadBase64(data.file)
+        .then(img => {
+          data.file = img.data.link
+          io.emit('chat', data)
+        })
+        .catch(err => console.error(err.message))
+    } else {
+      io.emit('chat', data)
+    }
   })
 })
 
