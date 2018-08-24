@@ -22,6 +22,11 @@ class ChatContainer extends Component {
           <div style={{ float:"left", clear: "both" }} ref={el => this.messagesEnd = el}></div>
           <form onSubmit={this.props.submit} className="chat-form">
             <input autoFocus type="text" autoComplete="off" value={this.props.message} onChange={this.props.change} placeholder="Say something..."/>
+            <input type="file" ref={el => this.fileInput = el} onChange={evt => this.props.setFiles(evt.target.files)} accept="image/*" style={{display: 'none'}}/>
+
+            <button type="button" onClick={() => this.fileInput.click()}>
+              <i className="material-icons">image</i>
+            </button>
             <button type="submit">
               <i className="material-icons">send</i>
             </button>
