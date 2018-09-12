@@ -1,4 +1,11 @@
 # Chatingo
+
+[![GitHub issues](https://img.shields.io/github/issues/Marviuz/react-chatingo.svg)](https://github.com/Marviuz/react-chatingo/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Marviuz/react-chatingo.svg)](https://github.com/Marviuz/react-chatingo/network)
+[![GitHub stars](https://img.shields.io/github/stars/Marviuz/react-chatingo.svg)](https://github.com/Marviuz/react-chatingo/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Marviuz/react-chatingo.svg)](https://github.com/Marviuz/react-chatingo/blob/master/LICENSE)
+
+
 A React/Next.js chat application project.
 
 ## Setup
